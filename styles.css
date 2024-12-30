@@ -49,6 +49,9 @@
 .display {
   width: 98vw;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; /* Adjust the gap between cards as needed */
 }
 
 .card {
@@ -59,4 +62,17 @@
     align-items: center;
     box-shadow: #a7a2a2 4px 6px 7px 0px;
     margin-top: 14px;
+    height: 14rem;
+    justify-content: center;
+}
+
+.new-book {
+  border-radius: 13px;
+  border: none;
+  background: #c4b8b8;
+  padding: 7px;
+  font-weight: 700;
+  display: block;
+  margin: 20px auto;
+  width: 45%;
 }
