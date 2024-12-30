@@ -30,10 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
     dialog.close();
   });
 
-  function Book(title, author) {
+  function Book(title, author, read = false) {
     this.title = title;
     this.author = author;
+    this.read = read;
   }
+
+  Book.prototype.toggleReadStatus = function () {
+    this.read = !this.read;
+  };
 
   function createBookCard(book, index) {
     const card = document.createElement('div');
@@ -53,6 +58,18 @@ document.addEventListener('DOMContentLoaded', () => {
     remove.innerText = '❌';
     remove.setAttribute('data-index', index);
 
+    // Add a button on each book’s display to toggle it's read status
+    const isRead = document.createElement('button');
+    isRead.classList.add('.read');
+    isRead.innerText = book.read ? 'Read' : 'Not Read';
+    isRead.setAttribute('data-index', index);
+
+    isRead.addEventListener('click', (event) => {
+        const index = event.target.getAttribute('data-index');
+        myLibrary[index].toggleReadStatus();
+        displayLibrary();
+    });
+
     remove.addEventListener('click', (event) => {
       const index = event.target.getAttribute('data-index');
       myLibrary.splice(index, 1);
@@ -61,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     card.appendChild(bookTitle);
     card.appendChild(authorTag);
+    card.appendChild(isRead);
     card.appendChild(remove);
 
     return card;

@@ -82,7 +82,11 @@ button:hover,
 button:focus {
   transform: scale(1.05); /* Slightly enlarge the button */
   outline: none; /* Remove default focus outline */
+  cursor: pointer;
+}
 
+.new-book {
+  box-shadow: 2px 2px #968686;
 }
 
 .new-book:hover,
