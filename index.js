@@ -1,6 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Define store for all our books
   const myLibrary = [];
+  
+  const dialog = document.getElementById('newBookModal');
+  const showButton = document.querySelector('.new-book');
+  const closeButton = document.getElementById('closeModal');
+
+  showButton.addEventListener('click', () => {
+    dialog.showModal();
+  })
+
+  closeButton.addEventListener('click', () => {
+    dialog.close()
+  })
 
   function Book(title, author) {
     this.title = title;
