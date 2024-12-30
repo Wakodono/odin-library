@@ -6,6 +6,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const showButton = document.querySelector('.new-book');
   const closeButton = document.getElementById('closeModal');
 
+  const form = document.querySelector('#newBookModal form');
+
+  form.addEventListener('submit', (event) => {
+  // Prevent the default form submission
+  event.preventDefault();
+
+  // Get the values from the input fields
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+
+  // Create a new Book object and add it to the myLibrary array
+  const newBook = new Book(title, author);
+  myLibrary.push(newBook);
+
+  // Update the display
+  displayLibrary();
+
+  // Close the dialog
+  dialog.close();
+});
+
   showButton.addEventListener('click', () => {
     dialog.showModal();
   })
@@ -45,7 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function displayLibrary() {
     // Select the container where the cards will be displayed
     const container = document.querySelector('.display');
-
+    container.innerHTML = ''; // Clear the container
+    
     // Loop through the myLibrary array
     myLibrary.forEach(book => {
       // Create a card for the book using createBookCard function
