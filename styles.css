@@ -55,7 +55,7 @@
 }
 
 .card {
-    width: 13.5rem;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -75,4 +75,11 @@
   display: block;
   margin: 20px auto;
   width: 45%;
+}
+
+.new-book:hover,
+.new-book:focus {
+  background-color: #a7a2a2; /* Change background color on hover and focus */
+  transform: scale(1.05); /* Slightly enlarge the button */
+  outline: none; /* Remove default focus outline */
 }
