@@ -30,10 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
     dialog.close();
   });
 
-  function Book(title, author, read = false) {
-    this.title = title;
-    this.author = author;
-    this.read = read;
+  class Book {
+    constructor(title, author, read = false) {
+      this.title = title;
+      this.author = author;
+      this.read = read;
+    }
   }
 
   Book.prototype.toggleReadStatus = function () {
